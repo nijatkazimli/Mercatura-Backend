@@ -5,7 +5,9 @@ import com.mercatura.backend.entity.Image;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -17,6 +19,7 @@ public class UserResponse {
     private String lastName;
     private String userName;
     private String profileImage;
+    private List<String> roles;
 
     public UserResponse(ApplicationUser user) {
         this.id = user.getId();
@@ -27,6 +30,9 @@ public class UserResponse {
         if (profileImage != null) {
             this.profileImage = profileImage.getImageUrl();
         }
+        this.roles = user.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList();
     }
 
 }
