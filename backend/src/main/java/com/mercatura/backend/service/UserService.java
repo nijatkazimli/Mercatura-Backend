@@ -48,6 +48,14 @@ public class UserService implements UserDetailsService {
     public UUIDResponse addProfileImage(UUID id, String imageUrl) {
         ApplicationUser user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        if (user.getProfileImage() != null) {
+            Image existingImage = user.getProfileImage();
+            user.setProfileImage(null);
+            userRepository.save(user);
+            imageRepository.delete(existingImage);
+        }
+
         Image image = new Image();
         image.setImageUrl(imageUrl);
         image.setUser(user);

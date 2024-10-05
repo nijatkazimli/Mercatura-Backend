@@ -24,6 +24,6 @@ public class Image {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @OneToOne(mappedBy = "profileImage", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "profileImage")
     private ApplicationUser user;
 }
