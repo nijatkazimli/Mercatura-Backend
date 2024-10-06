@@ -1,13 +1,14 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MinMaxResponse {
-    private Double min;
-    private Double max;
+public class UUIDResponse {
+    private UUID id;
 }

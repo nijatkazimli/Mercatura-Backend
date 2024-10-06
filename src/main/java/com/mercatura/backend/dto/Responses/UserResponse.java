@@ -1,4 +1,4 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.Responses;
 
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Image;

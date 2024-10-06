@@ -1,7 +1,7 @@
 package com.mercatura.backend.controller;
 
-import com.mercatura.backend.dto.ProductCategoryResponse;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.ProductCategoryResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.ProductCategory;
 import com.mercatura.backend.service.ProductCategoryService;
 import io.swagger.v3.oas.annotations.Operation;

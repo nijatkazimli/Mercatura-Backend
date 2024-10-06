@@ -1,7 +1,7 @@
 package com.mercatura.backend.controller;
 
-import com.mercatura.backend.dto.ReviewResponse;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.ReviewResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.Review;
 import com.mercatura.backend.service.ReviewService;
 import io.swagger.v3.oas.annotations.Operation;

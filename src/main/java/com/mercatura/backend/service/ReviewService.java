@@ -1,7 +1,7 @@
 package com.mercatura.backend.service;
 
-import com.mercatura.backend.dto.ReviewResponse;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.ReviewResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Product;
 import com.mercatura.backend.entity.Review;

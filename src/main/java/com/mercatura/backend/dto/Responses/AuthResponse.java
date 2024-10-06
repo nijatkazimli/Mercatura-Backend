@@ -1,4 +1,4 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class UUIDResponse {
+@NoArgsConstructor
+public class AuthResponse {
     private UUID id;
+    private String token;
 }

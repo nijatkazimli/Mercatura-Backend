@@ -1,6 +1,8 @@
 package com.mercatura.backend.controller;
 
-import com.mercatura.backend.dto.*;
+import com.mercatura.backend.dto.Responses.ProductResponse;
+import com.mercatura.backend.dto.Responses.ProductsWithNumPagesAndPriceRange;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.Product;
 import com.mercatura.backend.service.ImageService;
 import com.mercatura.backend.service.ProductService;

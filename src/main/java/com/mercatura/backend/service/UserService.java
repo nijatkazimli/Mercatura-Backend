@@ -1,8 +1,8 @@
 package com.mercatura.backend.service;
 
 import com.mercatura.backend.dto.Statistics.UserStatistics;
-import com.mercatura.backend.dto.UUIDResponse;
-import com.mercatura.backend.dto.UserResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
+import com.mercatura.backend.dto.Responses.UserResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Image;
 import com.mercatura.backend.repository.ImageRepository;

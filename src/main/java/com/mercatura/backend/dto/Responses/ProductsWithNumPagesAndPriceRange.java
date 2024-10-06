@@ -1,4 +1,4 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

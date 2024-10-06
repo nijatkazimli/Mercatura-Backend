@@ -1,10 +1,10 @@
 package com.mercatura.backend.service;
 
-import com.mercatura.backend.dto.MinMaxResponse;
-import com.mercatura.backend.dto.ProductResponse;
-import com.mercatura.backend.dto.ProductsWithNumPagesAndPriceRange;
+import com.mercatura.backend.dto.Responses.MinMaxResponse;
+import com.mercatura.backend.dto.Responses.ProductResponse;
+import com.mercatura.backend.dto.Responses.ProductsWithNumPagesAndPriceRange;
 import com.mercatura.backend.dto.Statistics.ProductStatistics;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.Image;
 import com.mercatura.backend.entity.Product;
 import com.mercatura.backend.entity.ProductCategory;

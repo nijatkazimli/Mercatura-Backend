@@ -1,6 +1,9 @@
 package com.mercatura.backend.controller;
 
-import com.mercatura.backend.dto.*;
+import com.mercatura.backend.dto.RequestBody.LoginBody;
+import com.mercatura.backend.dto.RequestBody.PasswordChangeBody;
+import com.mercatura.backend.dto.RequestBody.RegistrationBody;
+import com.mercatura.backend.dto.Responses.AuthResponse;
 import com.mercatura.backend.service.AuthenticationService;
 import com.mercatura.backend.service.TokenService;
 import io.swagger.v3.oas.annotations.Operation;

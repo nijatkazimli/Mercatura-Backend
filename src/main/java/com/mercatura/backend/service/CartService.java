@@ -1,8 +1,8 @@
 package com.mercatura.backend.service;
 
-import com.mercatura.backend.dto.CartResponse;
+import com.mercatura.backend.dto.Responses.CartResponse;
 import com.mercatura.backend.dto.Statistics.CartStatistics;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Cart;
 import com.mercatura.backend.entity.Product;

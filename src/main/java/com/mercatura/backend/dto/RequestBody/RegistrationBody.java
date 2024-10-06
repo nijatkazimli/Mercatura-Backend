@@ -1,4 +1,4 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.RequestBody;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

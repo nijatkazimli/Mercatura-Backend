@@ -1,4 +1,4 @@
-package com.mercatura.backend.dto;
+package com.mercatura.backend.dto.Responses;
 
 import com.mercatura.backend.entity.Cart;
 import com.mercatura.backend.entity.Product;

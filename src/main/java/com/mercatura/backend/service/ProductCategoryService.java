@@ -1,7 +1,7 @@
 package com.mercatura.backend.service;
 
-import com.mercatura.backend.dto.ProductCategoryResponse;
-import com.mercatura.backend.dto.UUIDResponse;
+import com.mercatura.backend.dto.Responses.ProductCategoryResponse;
+import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.entity.ProductCategory;
 import com.mercatura.backend.repository.ProductCategoryRepository;
 import jakarta.transaction.Transactional;
