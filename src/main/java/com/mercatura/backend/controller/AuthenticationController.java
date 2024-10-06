@@ -4,6 +4,7 @@ import com.mercatura.backend.dto.RequestBody.LoginBody;
 import com.mercatura.backend.dto.RequestBody.PasswordChangeBody;
 import com.mercatura.backend.dto.RequestBody.RegistrationBody;
 import com.mercatura.backend.dto.Responses.AuthResponse;
+import com.mercatura.backend.dto.Responses.RolesResponse;
 import com.mercatura.backend.service.AuthenticationService;
 import com.mercatura.backend.service.TokenService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,7 +34,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public AuthResponse registerUser(@Valid @RequestBody RegistrationBody body) {
         return authenticationService.registerUser(
-                body.getFirstName(), body.getLastName(), body.getUsername(), body.getPassword()
+                body.getFirstName(), body.getLastName(), body.getUsername(), body.getPassword(), body.getRole()
         );
     }
 
@@ -66,5 +67,12 @@ public class AuthenticationController {
             PasswordChangeBody passwordChangeBody
     ) {
         return ResponseEntity.ok(authenticationService.changePassword(passwordChangeBody));
+    }
+
+    @Tag(name = "Authentication")
+    @Operation(summary = "Gets all available roles except admin")
+    @GetMapping("/role")
+    public RolesResponse getAllRolesExceptAdmin() {
+        return authenticationService.getAllRolesExceptAdmin();
     }
 }

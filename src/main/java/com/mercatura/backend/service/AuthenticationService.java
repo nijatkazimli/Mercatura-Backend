@@ -2,6 +2,7 @@ package com.mercatura.backend.service;
 
 import com.mercatura.backend.dto.Responses.AuthResponse;
 import com.mercatura.backend.dto.RequestBody.PasswordChangeBody;
+import com.mercatura.backend.dto.Responses.RolesResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Role;
 import com.mercatura.backend.repository.RoleRepository;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -43,15 +45,10 @@ public class AuthenticationService {
         this.tokenService = tokenService;
     }
 
-    public AuthResponse registerUser(String name, String surname, String username, String password) {
+    public AuthResponse registerUser(String name, String surname, String username, String password, String role) {
         String encoded = passwordEncoder.encode(password);
-        Role userRole;
-
-        if (roleRepository.findByAuthority("USER").isPresent()) {
-            userRole = roleRepository.findByAuthority("USER").get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Users do not have ROLE_USER");
-        }
+        Role userRole = roleRepository.findByAuthority(role)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Role not found"));
 
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(userRole);
@@ -60,7 +57,7 @@ public class AuthenticationService {
                 new ApplicationUser(name, surname, username, encoded, userRoles)
         );
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(username, password);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(username, password, userRoles);
         String token = tokenService.generateJWT(authentication);
 
         return new AuthResponse(newUser.getId(), token);
@@ -98,5 +95,14 @@ public class AuthenticationService {
         } catch (AuthenticationException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         }
+    }
+
+    public RolesResponse getAllRolesExceptAdmin() {
+        List<Role> roles = roleRepository.findAll();
+        List<Role> filteredRoles = roles.stream()
+                .filter(role -> !role.getAuthority().equals("ADMIN"))
+                .toList();
+
+        return new RolesResponse(filteredRoles);
     }
 }
