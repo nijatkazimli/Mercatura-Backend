@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ public class ReviewController {
 
     @Tag(name = "Review")
     @Operation(summary = "Gets all available reviews.")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<ReviewResponse> getAllReviews(
             @Parameter(description = "Page number for pagination. Default 0.")
@@ -53,6 +55,7 @@ public class ReviewController {
 
     @Tag(name = "Review")
     @Operation(summary = "Adds a new review")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MERCHANDISER', 'USER')")
     @PostMapping()
     public UUIDResponse addReview(
             @Valid @RequestBody Review review,

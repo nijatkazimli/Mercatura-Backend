@@ -9,8 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,33 +25,26 @@ public class BackendApplication {
 						  UserRepository userRepository,
 						  PasswordEncoder passwordEncoder) {
 		return args -> {
-			if (roleRepository.findByAuthority("ADMIN").isPresent()) return;
-			Role adminRole = roleRepository.save(new Role("ADMIN"));
-			roleRepository.save(new Role("USER"));
+			if (roleRepository.findByAuthority("USER").isEmpty()) {
+				roleRepository.save(new Role("USER"));
+			}
+			if (roleRepository.findByAuthority("MERCHANDISER").isEmpty()) {
+				roleRepository.save(new Role("MERCHANDISER"));
+			}
+			if (roleRepository.findByAuthority("ADMIN").isEmpty()) {
+				Role adminRole = roleRepository.save(new Role("ADMIN"));
+				Set<Role> roles = new HashSet<>();
+				roles.add(adminRole);
 
-			Set<Role> roles = new HashSet<>();
-			roles.add(adminRole);
-
-			ApplicationUser admin = new ApplicationUser(
-					"admin",
-					"admin",
-					"admin",
-					passwordEncoder.encode("password"),
-					roles
-			);
-
-			userRepository.save(admin);
+				ApplicationUser admin = new ApplicationUser(
+						"admin",
+						"admin",
+						"admin",
+						passwordEncoder.encode("password"),
+						roles
+				);
+				userRepository.save(admin);
+			}
 		};
 	}
-
-//	@Bean
-//	public WebMvcConfigurer configurer() {
-//		return new WebMvcConfigurer() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/**").allowedOrigins("*");
-//			}
-//		};
-//	}
-
 }

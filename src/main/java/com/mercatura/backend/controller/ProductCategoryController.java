@@ -7,6 +7,7 @@ import com.mercatura.backend.service.ProductCategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class ProductCategoryController {
     @Operation(summary = "Adds new product category.",
         description = "Adds a new product category and provides its UUID.")
     @PostMapping()
+    @PreAuthorize("hasAnyRole('ADMIN', 'MERCHANDISER')")
     public UUIDResponse addProductCategory(@Valid @RequestBody ProductCategory productCategory) {
         return productCategoryService.addProductCategory(productCategory);
     }

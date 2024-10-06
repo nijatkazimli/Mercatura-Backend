@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -88,6 +89,7 @@ public class ProductController {
     @Tag(name = "Product")
     @Operation(summary = "Adds a new product.",
         description = "Adds a new product and provides its UUID.")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MERCHANDISER')")
     @PostMapping()
     public UUIDResponse addProduct(@Valid @RequestBody Product product,
                                    @Parameter(
@@ -98,6 +100,7 @@ public class ProductController {
 
     @Tag(name = "Product")
     @Operation(summary = "Adds a new image to the product with the given ID")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MERCHANDISER')")
     @PostMapping("/{id}/image")
     public UUIDResponse addProductImage(
             @Parameter(description = "ID of the product.")
@@ -110,6 +113,7 @@ public class ProductController {
 
     @Tag(name = "Product")
     @Operation(summary = "Deletes the product.")
+    @PreAuthorize("hasAnyRole('ADMIN', 'MERCHANDISER')")
     @DeleteMapping("/{id}")
     public void deleteProductById(@Parameter(
                                         description = "ID of the product to be deleted."

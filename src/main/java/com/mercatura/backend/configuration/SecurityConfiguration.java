@@ -64,7 +64,8 @@ public class SecurityConfiguration {
                 }))
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
-                    auth.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER");
+                    auth.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER", "MERCHANDISER");
+                    auth.requestMatchers("/cart/**").hasAnyRole("ADMIN", "USER", "MERCHANDISER");
                     auth.anyRequest().permitAll();
                 })
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())))
