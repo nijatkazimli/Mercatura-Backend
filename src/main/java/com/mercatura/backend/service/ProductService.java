@@ -14,6 +14,7 @@ import com.mercatura.backend.repository.ProductCategoryRepository;
 import com.mercatura.backend.repository.ProductRepository;
 import com.mercatura.backend.specification.ProductSpecifications;
 
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +30,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductCategoryRepository productCategoryRepository;
