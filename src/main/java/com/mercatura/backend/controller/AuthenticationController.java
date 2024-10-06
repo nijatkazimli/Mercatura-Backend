@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-//@CrossOrigin(origins = "*")
 @Validated
 public class AuthenticationController {
 
@@ -28,7 +27,6 @@ public class AuthenticationController {
     @Tag(name = "Authentication")
     @Operation(summary = "Registers a new user.",
         description = "Registers a new user and provides JWT token.")
-//    @CrossOrigin
     @PostMapping("/register")
     public AuthResponse registerUser(@Valid @RequestBody RegistrationBody body) {
         return authenticationService.registerUser(
@@ -39,7 +37,6 @@ public class AuthenticationController {
     @Tag(name = "Authentication")
     @Operation(summary = "Logins the existing user.",
         description = "Logins the existing user and provides JWT token.")
-//    @CrossOrigin
     @PostMapping("/login")
     public AuthResponse loginResponse(@RequestBody LoginBody body) {
         return authenticationService.loginUser(body.getUsername(), body.getPassword());
@@ -56,5 +53,15 @@ public class AuthenticationController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token is expired.");
         }
         return ResponseEntity.ok("Token is valid.");
+    }
+
+    @Tag(name = "Authentication")
+    @Operation(summary = "Changes the password.")
+    @PostMapping("/change")
+    public ResponseEntity<String> changePassword(
+            @RequestBody
+            PasswordChangeBody passwordChangeBody
+    ) {
+        return ResponseEntity.ok(authenticationService.changePassword(passwordChangeBody));
     }
 }

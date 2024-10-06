@@ -1,6 +1,8 @@
 package com.mercatura.backend.service;
 
 import com.mercatura.backend.dto.AuthResponse;
+import com.mercatura.backend.dto.PasswordChangeBody;
+import com.mercatura.backend.dto.PasswordChangeBody;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Role;
 import com.mercatura.backend.repository.RoleRepository;
@@ -78,6 +80,22 @@ public class AuthenticationService {
             } else {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User is not found");
             }
+        } catch (AuthenticationException e) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
+        }
+    }
+
+    public String changePassword(PasswordChangeBody passwordResetBody) {
+        try {
+            ApplicationUser user = userRepository.findByUsername(passwordResetBody.getUsername())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User is not found"));
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(passwordResetBody.getUsername(), passwordResetBody.getCurrentPassword())
+            );
+            String newEncodedPassword = passwordEncoder.encode(passwordResetBody.getNewPassword());
+            user.setPassword(newEncodedPassword);
+            userRepository.save(user);
+            return "Password change successful.";
         } catch (AuthenticationException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
         }
