@@ -3,6 +3,7 @@ package com.mercatura.backend.service;
 import com.mercatura.backend.dto.MinMaxResponse;
 import com.mercatura.backend.dto.ProductResponse;
 import com.mercatura.backend.dto.ProductsWithNumPagesAndPriceRange;
+import com.mercatura.backend.dto.Statistics.ProductStatistics;
 import com.mercatura.backend.dto.UUIDResponse;
 import com.mercatura.backend.entity.Image;
 import com.mercatura.backend.entity.Product;
@@ -20,7 +21,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
@@ -45,6 +45,11 @@ public class ProductService {
         this.productCategoryRepository = productCategoryRepository;
         this.cartRepository = cartRepository;
         this.imageRepository = imageRepository;
+    }
+
+    public ProductStatistics getAllProductsStatistics() {
+        List<Product> products = productRepository.findAll();
+        return new ProductStatistics(products);
     }
 
     public Product addProduct(Product product, UUID productCategoryId) {

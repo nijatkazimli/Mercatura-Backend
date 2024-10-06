@@ -1,12 +1,11 @@
 package com.mercatura.backend.service;
 
+import com.mercatura.backend.dto.Statistics.UserStatistics;
 import com.mercatura.backend.dto.UUIDResponse;
 import com.mercatura.backend.dto.UserResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Image;
-import com.mercatura.backend.entity.Product;
 import com.mercatura.backend.repository.ImageRepository;
-import com.mercatura.backend.repository.ProductRepository;
 import com.mercatura.backend.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,6 +35,11 @@ public class UserService implements UserDetailsService {
         Pageable pageable = PageRequest.of(page, size);
         Page<ApplicationUser> userPage = userRepository.findAll(pageable);
         return userPage.stream().map(UserResponse::new).collect(Collectors.toList());
+    }
+
+    public UserStatistics getAllUsersStatistics() {
+        List<ApplicationUser> users = userRepository.findAll();
+        return new UserStatistics(users);
     }
 
     public UserResponse getUserById(UUID id) {

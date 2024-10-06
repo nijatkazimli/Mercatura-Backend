@@ -1,6 +1,7 @@
 package com.mercatura.backend.service;
 
 import com.mercatura.backend.dto.CartResponse;
+import com.mercatura.backend.dto.Statistics.CartStatistics;
 import com.mercatura.backend.dto.UUIDResponse;
 import com.mercatura.backend.entity.ApplicationUser;
 import com.mercatura.backend.entity.Cart;
@@ -34,6 +35,11 @@ public class CartService {
         this.cartRepository = cartRepository;
         this.userRepository = userRepository;
         this.productRepository = productRepository;
+    }
+
+    public CartStatistics getAllCartsStatistics() {
+        List<Cart> carts = cartRepository.findAll();
+        return new CartStatistics(carts);
     }
 
     public List<CartResponse> getAllCartsByUserId(UUID userId) {
