@@ -26,7 +26,9 @@ public class ProductResponse {
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.rating = product.getRating();
-        this.images = product.getImages().stream().map(Image::getImageUrl).toList();
+        this.images = product.getImages() != null ?
+                product.getImages().stream().map(Image::getImageUrl).toList() :
+                null;
         this.category = product.getCategory().getName();
     }
 }
