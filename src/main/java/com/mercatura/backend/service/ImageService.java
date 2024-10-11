@@ -42,6 +42,8 @@ public class ImageService {
                 .buildClient()
                 .upload(file.getInputStream(), file.getSize(), true);
 
-        return containerClient.getBlobClient(filename).getBlobUrl();
+        String url = containerClient.getBlobClient(filename).getBlobUrl();
+        // we are using docker-service -> forward to localhost
+        return url.replace("azuriteDocker", "localhost");
     }
 }
