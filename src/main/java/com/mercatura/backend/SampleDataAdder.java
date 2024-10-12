@@ -204,8 +204,12 @@ public class SampleDataAdder {
             review.setRating(rating);
             review.setAuthor(author);
             review.setProduct(product);
-            Double newRating = product.getReviews().stream().mapToDouble(Review::getRating).average().orElse(0.0);
-            product.setRating(newRating);
+            Integer ratingSum = product.getReviews().stream().mapToInt(Review::getRating).sum() + rating;
+            Integer reviews = 1;
+            if (product.getReviews() != null) {
+                reviews = product.getReviews().size();
+            }
+            product.setRating((double) (ratingSum / reviews));
             productRepository.save(product);
             reviewRepository.save(review);
         }
