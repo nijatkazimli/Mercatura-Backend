@@ -56,7 +56,8 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOrigins(List.of("http://localhost:3000", "https://lively-hill-03ba82810.5.azurestaticapps.net"));
+                    config.setAllowedOrigins(List.of("http://localhost:3000", "https://lively-hill-03ba82810.5.azurestaticapps.net"
+                    , "http://127.0.0.1:3000"));
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
                     config.setAllowCredentials(true);
                     config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
