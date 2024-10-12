@@ -75,15 +75,25 @@ public class SampleDataAdder {
                             " tablet, featuring a vibrant display, high-resolution camera, and long-lasting battery." +
                             " Perfect for staying connected and capturing life's moments.",
                     499.99, electronics);
+            Product usbAdapter = addProduct("Usb Adapter", "For people who still use old-fashioned " +
+                             "usb drives.", 9.99, electronics);
+            Product smartWatch = addProduct("Smart Watch", "Smarter than some people", 123.99,
+                    electronics);
+            Product router = addProduct("Router", "For routing", 29.99, electronics);
 
             // Home Appliances
             Product toaster = addProduct("Toaster", "Just what you need", 99.89, homeAppliances);
             Product kettle = addProduct("Kettle", "Will make your water boiling hot",
                     39.99, homeAppliances);
+            Product airFryer = addProduct("Air Fryer", "Cooking has never been this easy", 67.99,
+                            homeAppliances);
 
             // Fashion
             Product dress = addProduct("Dress", "May be a nice gift", 38.99, fashion);
             Product socks = addProduct("Socks", "Just what you expect", 4.99, fashion);
+            Product swimGoggles = addProduct("Swim Goggles", "See what is under the water", 8.99,
+                    fashion);
+            Product backpack = addProduct("Backpack", "Pack on your back", 29.99, fashion);
 
             // Hygienic
             Product soap = addProduct("Soap", "Cleaning is a human nature", 2.99, hygienic);
@@ -96,12 +106,18 @@ public class SampleDataAdder {
 
             addImageToProduct(phone, "phone.jpeg");
             addImageToProduct(tablet, "tablet.jpeg");
+            addImageToProduct(usbAdapter, "usb-adapter.jpeg");
+            addImageToProduct(smartWatch, "smart-watch.jpeg");
+            addImageToProduct(router, "router.jpeg");
             addImageToProduct(toaster, "toaster-2.jpeg");
             addImageToProduct(toaster, "toaster-3.jpeg");
             addImageToProduct(toaster, "toaster-4.jpeg");
             addImageToProduct(kettle, "kettle.jpeg");
+            addImageToProduct(airFryer, "air-fryer.jpeg");
             addImageToProduct(dress, "dress.jpeg");
             addImageToProduct(socks, "socks.jpeg");
+            addImageToProduct(swimGoggles, "swim-goggles.jpeg");
+            addImageToProduct(backpack, "backpack.jpeg");
             addImageToProduct(soap, "soap.jpeg");
             addImageToProduct(shampoo, "shampoo.jpeg");
             addImageToProduct(windows11, "windows11.jpeg");
@@ -122,13 +138,19 @@ public class SampleDataAdder {
             addReview("Good", 4, regular, phone);
             addReview("Excellent", 5, merchandiser, phone);
             addReview("Good", 4, regular, tablet);
+            addReview("My dad loves it", 5, regular, usbAdapter);
+            addReview("It is smarter than me!", 5, regular, smartWatch);
+            addReview("Routes my network", 4, merchandiser, router);
             addReview("Excellent", 5, merchandiser, tablet);
             addReview("Good", 4, regular, toaster);
             addReview("Excellent", 5, merchandiser, kettle);
+            addReview("Useful", 4, merchandiser, airFryer);
             addReview("Good", 4, regular, dress);
             addReview("Good", 5, merchandiser, dress);
             addReview("Very Bad", 1, regular, socks);
             addReview("Bad", 2, merchandiser, socks);
+            addReview("Good", 4, regular, swimGoggles);
+            addReview("Carries a lot of stuff", 5, regular, backpack);
             addReview("What can you expect?", 4, regular, soap);
             addReview("It does what it should do", 4, merchandiser, soap);
             addReview("It did not grow any hair!", 1, regular, shampoo);
