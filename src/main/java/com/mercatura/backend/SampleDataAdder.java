@@ -204,6 +204,9 @@ public class SampleDataAdder {
             review.setRating(rating);
             review.setAuthor(author);
             review.setProduct(product);
+            Double newRating = product.getReviews().stream().mapToDouble(Review::getRating).average().orElse(0.0);
+            product.setRating(newRating);
+            productRepository.save(product);
             reviewRepository.save(review);
         }
     }
