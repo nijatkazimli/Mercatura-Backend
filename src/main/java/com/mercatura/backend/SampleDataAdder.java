@@ -199,18 +199,18 @@ public class SampleDataAdder {
 
     private void addReview(String content, Integer rating, ApplicationUser author, Product product) {
         if (author != null && product != null) {
+            Double ratingSum = Double.valueOf(rating);
+            int reviews = 1;
+            if (product.getReviews() != null) {
+                reviews = product.getReviews().size() + 1;
+                ratingSum = product.getReviews().stream().mapToDouble(Review::getRating).sum() + ratingSum;
+            }
+            product.setRating(ratingSum / (double) reviews);
             Review review = new Review();
             review.setContent(content);
             review.setRating(rating);
             review.setAuthor(author);
             review.setProduct(product);
-            Double ratingSum = Double.valueOf(rating);
-            int reviews = 1;
-            if (product.getReviews() != null) {
-                reviews = product.getReviews().size();
-                ratingSum = product.getReviews().stream().mapToDouble(Review::getRating).sum();
-            }
-            product.setRating(ratingSum / (double) reviews);
             productRepository.save(product);
             reviewRepository.save(review);
         }
