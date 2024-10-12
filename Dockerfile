@@ -16,4 +16,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     chmod +x /app/wait-for-it.sh
 EXPOSE 8080
-ENTRYPOINT ["/app/wait-for-it.sh", "--", "java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["/app/wait-for-it.sh", "mysql", "--", "java", "-jar", "/app/app.jar"]
