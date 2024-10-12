@@ -5,6 +5,7 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 import com.azure.storage.blob.models.PublicAccessType;
+import com.mercatura.backend.utils.URLReplacer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,7 +44,7 @@ public class ImageService {
                 .upload(file.getInputStream(), file.getSize(), true);
 
         String url = containerClient.getBlobClient(filename).getBlobUrl();
-        // we are using docker-service -> forward to localhost
-        return url.replace("azuriteDocker", "localhost");
+        // browsers cannot directly access docker services using service name
+        return URLReplacer.replaceAzDocker(url);
     }
 }
