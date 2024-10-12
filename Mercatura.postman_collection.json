@@ -1,0 +1,856 @@
+{
+	"info": {
+		"_postman_id": "44b98e77-a71e-4e6b-9df2-81be8ff67f1f",
+		"name": "Mercatura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31312154"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Nijat\",\r\n    \"lastName\": \"Kazimli\",\r\n    \"username\": \"nijatkazimli\",\r\n    \"password\": \"nijatkazimli\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoibmlqYXRrYXppbWxpIiwiaWF0IjoxNzI4NzM2MTMzLCJyb2xlcyI6IlVTRVIifQ.TG5f4tX6d7WEr2usn9KM5qd9mDI_EciDuf5tMv9fw0vvwbn3cl-EOfdjt1tX13tpLnheKJvPX4RR_7Q_GfqweY3ttCslfD6ORdI7nCs8msQ6CdsPXfuRGlP9unXh-CWj3TC2O7IPFrAY_Zy5k1p24_20j94MtoceTh23Ue-ps-8qydrkRjlRbJtDymTw0_pTpR8bE8p15W5fF_MESVg5i3Tq6cB-kIYH68Jy8nYLW_E31Rj_bSv9gef9TV5GGZ1BU0gxtI5yaurxOZYOd5YEQlpeRF1TPpecNdYpwStAdAmxPuQToFvXPb9kFeGmk-2o2H_kgHKmsWBBbaN6Ytoypg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MjgyNDI4NzAsInJvbGVzIjoiQURNSU4ifQ.sgS5ykiWQjhscUnRObyrFm4bFRe6xvaeQrTAtnZXEd4lazdOuGuWO3B3i2D0vKOUgdk4fvyjQvzqTSwVEC_z4y-j7JGbnaXJL_E5m-7FGT8_YjTZYeNd7KBSMz_TYtT0cKIRklN49fGrcm9KLcpu0E_chExMYXuoxTKKBD82GIkT2KtpsNq0_-Ge9vdFP6orAuKyd_0FHx0uGrFGe10c9VZlznTedDEf072aaAXwzzsVj44IFbSjLk04_Y9MDPwHp_hZ2LpPtXyea-tzLCY9W8aLDKK8-mI2ktNDPz5Z79zl9-_eMpjak_vfOY0WBjpuQBMqSOBbrPHzjuCJQDsePg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/e0fb3c96-4cb5-45db-b0b8-c62047674d70",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"e0fb3c96-4cb5-45db-b0b8-c62047674d70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"nijatmerchandiser\",\r\n    \"password\": \"nijatmerchandiser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoibmlqYXRrYXppbWxpIiwiaWF0IjoxNzI4NzMyNzgyLCJyb2xlcyI6IlVTRVIifQ.PM0TxrtAmZjRsY06Ox5OQqjh-us7UFNO2OpigxuM09mByQzEq-wkQA6rDQHDAti0HaH42o1qh9hxdg_5HsEF3C4WO5FPgnPa9Gnmav_zW1w4BseHCxeoP56kYhr_r4Ag9XNFrD3FjO9tS7TECKDpix-l9pJ4BmsfqKEXsDK1qAeruqCiAA-yNZJp65BE0NsGY6WPrLZvBgmYvFoLs5-_bNDMA_g5j4CtyIgbSUlA_JyLDgg4tMEfuIjBBBhjVuByrCaHhVrn6Kk2D4AN7m84RTLnUW2v-e_tfNCD6I1LWffuUrZNgj9aGtIHRirh1bcUfPswld567oUlj6TB9MNXBg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/0e620b34-9210-4092-ba17-eb5bb9668ffe",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"0e620b34-9210-4092-ba17-eb5bb9668ffe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProfileImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoibmlqYXRrYXppbWxpIiwiaWF0IjoxNzI4MTEyODk0LCJyb2xlcyI6IlVTRVIifQ.DJSiXKPuixcuY3i5j3p2FSPtMzSO2-yEiwztYKNjapayGh0Wtx9b6kpnkxjV4OpAREE76enDCoLE6F8xluSGdfNuqNTF9Fix1dK7jSDRsM32Ls-oKKG_Ngp1kJAPsZnETEXHoutKONxXqC98453rpNcTMoallAyausvfPOvDdC6QTv0bJ4QwfI7rSAUXH4q2SZ3VCmXPLAFORX9decjrdVvMr-64AYTOY1rpkMsD1zsMZpE3idA0Dliz-if9fFB9zvssdc99NxLeOu1IyNJ08A-QHTXvEp5RVekvf06613bkdFFdi8giyidpB7Ztm_mqnVpzdEefN8fk_3VqgVqYBg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/nijatkaazimli/Documents/pp.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/user/3b565fce-69a7-4f1d-871c-834c2c46afcf/image",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"3b565fce-69a7-4f1d-871c-834c2c46afcf",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkToken",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoibmlqYXRrYXppbWxpIiwiaWF0IjoxNzI3MjA1NzgwLCJyb2xlcyI6IlVTRVIifQ.UWawHeNR1O493n5nrFFBE2OB3fYgeYdxeXV9zhojdEZS8T8T9GuEuE7q8pvXrVJLbzJTlRY52dYTa0JSvlt6cPCul8AHiE9-xSqEpr21F0pbUv1NWIb4F1bBu8FatFGFXAd6tem7wz5paPx1UaaOgxRsdvq8UIBy7sq4kMuNHE1KVrqJjlmeKsc01olEGJay6nwKTTxgMio8b2jaSPl2OHesYf25JeDvfDXsVsF-zzDJNdwKHHrVnFRCOUEk5DZhGbNDB28p9ko86eFUHoeWRsO_m_qvfcXrXnO-Qawc1vyTn9-LzA2TSBlSs2HXn30kRqTfNXsO9xiEA4z6aztucQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/check-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"check-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"currentPassword\": \"password\",\n    \"newPassword\": \"testtest\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/change",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"change"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/role",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "userStatistics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MjgyNDc0NjMsInJvbGVzIjoiQURNSU4ifQ.Hp9l_rGcsjYeTb9xIOyHpdVs1vdDxNTYyWvC8_VLZnKKOfRXYK9ITk2BFGZ8MfdN2VlSGJoY2jZ0P9mQrrraYm0Y7k5vFCRmAwRBfrNGWkaZzPsPA4Q_ka5ALAVfFI2XleX0bXN6nXNDkoWXN7fHU7BHNAZ-7vfjIQM74VbQja3UFWmASKrXRPTtMD_9QxoiuVdjoLg52jFPoe8yVWKBPoOAVcK0oqzdKMAWgHaoYdh_fgAd30iM4XssEOzfiQTQAfm-SEf-1thNZ__eSRtgvIcmVtiEVraXZEiDASkLsUzCA6Cm-CIUE6Rb_OeFoMJbnfaNhxtbdeYS2BWeBXZYYg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productStatistics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MjgyMTI1MzksInJvbGVzIjoiQURNSU4ifQ.oQZQaRs_3XyaLxGhQDOHzPeaCyKVn108CFbE-sVGsFXaeE6JKSjAu8NobQffI5NmloKnAeBaTlQ2OiualdIcyj4g4BxQ9deIoIMBu2lC8IOYRphy3E0H59vjUTKgKmAELT4LUWtgaa4JVX4-RNw9ktLmbC5fyzYqyKiPXh-WgFpNWciVb2KP_KO9NxBRqumg3MjWBqtZy9JPFJ0UHEv3WQCsJkJzq6dnrr5d48SzQK_wOaRkjXB80o7SlecXyTsBEh7etlZtUWs_hJm9Nmxx8BCUkdOG4fqXFSdnqn9PVuUoc-tuKzELjrvQAG7HgjHU3TtKonXh2cjRFDZI8zdl2A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartStatistics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MjgyMDY0MzcsInJvbGVzIjoiQURNSU4ifQ.LHMFKOkpr_PhtN78GF6XPKVENf6EjUW1Hlzzc02spLhe2EsOxeTIla2tgoigOtN5BeOBNCGcCphUhIoWvVfUUXPCHjT0e2Suyp6dQER7LlWvLMC7WVMLfCjIQJEzgOg4fWghWNDxuvJv4b6TwTIgcqkFVmWKS0nurV2vomzYBGKKsDoa8txdEJpCHJp-WR6Z6np1jxYTml6c5ZNjM1eFokBAMp_-eTR9hhxd6R9W_W-cHdMr7fAnOZgmSX3rOEauo2hZhJlFsiXhsrct_HsSF4A4d0phl9ic5xCyDsiHfwcxC990nQxyLqMPka7_c076AFVZqgLjiubXuFcfIzCgpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProductCategory",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3Mjg3NzA1MjEsInJvbGVzIjoiQURNSU4ifQ.OJO85OfujxdZbbT9zYAZvflx8zZc6ICXQOQ3W2AfSU1BRUBdPhpuHwoKo9dqM3lA3kV1me_Xlw_ig3VI6EnTh-Yl0K794dVy8we_uSDpkwTPT_d75zoIIncn-GRwcP4wY3BIIhwGTNGkgWrWpvPm6vwAJKJXqDTQPs79DKF_3QR8BY86LkiwMsfCVV9YKOkz3Peci-v8U4EQphLuHC6uY_FghmL1LWYivib7ffOVvb95YcgaROqnbfLZmbmR7bhYHY47i5czShNpyQ7ADk09Ja-pJ_WbezS00v4FJ8dud6AK5jdNap42_gSS0xAEW7iUJH7x4U_T955njhKegZiGWg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Furniture\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all (filtered, sorted, paged)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product?page=0&size=15&minPrice=2&maxPrice=13&sortBy=RATING_DESCENDING&name=Tab",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "15"
+								},
+								{
+									"key": "minPrice",
+									"value": "2"
+								},
+								{
+									"key": "maxPrice",
+									"value": "13"
+								},
+								{
+									"key": "minRating",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "maxRating",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Electronics",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "RATING_DESCENDING"
+								},
+								{
+									"key": "name",
+									"value": "Tab"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/62ca8724-74d1-4172-b87d-8924243aa709",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"62ca8724-74d1-4172-b87d-8924243aa709"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chair\",\r\n    \"description\": \"Very nice chair\",\r\n    \"price\": 199\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product?categoryId=d9e2a909-49c7-4547-801d-7a941f3fa670",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "d9e2a909-49c7-4547-801d-7a941f3fa670"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/e9bad5fa-3941-4626-b765-c150b815cd10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"e9bad5fa-3941-4626-b765-c150b815cd10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "priceRange",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/priceRange",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"priceRange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/nijatkaazimli/Documents/office-chair.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/product/7f042cd6-3ddf-4fc4-8894-66a6a5a95316/image",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"7f042cd6-3ddf-4fc4-8894-66a6a5a95316",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/review",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byProductId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/review/get?productId=7f042cd6-3ddf-4fc4-8894-66a6a5a95316",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review",
+								"get"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "7f042cd6-3ddf-4fc4-8894-66a6a5a95316"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Loved it!\",\r\n    \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/review?authorId=331debca-000b-413a-b798-383046609fb6&productId=bd3344a8-ad69-4043-b67d-234e4211e6c9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review"
+							],
+							"query": [
+								{
+									"key": "authorId",
+									"value": "331debca-000b-413a-b798-383046609fb6"
+								},
+								{
+									"key": "productId",
+									"value": "bd3344a8-ad69-4043-b67d-234e4211e6c9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/review/281d2702-28cc-43da-941e-abf7f261664d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"review",
+								"281d2702-28cc-43da-941e-abf7f261664d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "byUserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart?userId=331debca-000b-413a-b798-383046609fb6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "331debca-000b-413a-b798-383046609fb6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart?userId=331debca-000b-413a-b798-383046609fb6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "331debca-000b-413a-b798-383046609fb6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addToCart",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart/38949be2-a7cf-40e4-93a4-709ca629c19d/add?productId=bd3344a8-ad69-4043-b67d-234e4211e6c9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"38949be2-a7cf-40e4-93a4-709ca629c19d",
+								"add"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "bd3344a8-ad69-4043-b67d-234e4211e6c9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeFromCart",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart/6cd665a6-b574-4404-a3ed-2fd97eb4672c/remove?productId=1e42331b-eae6-4599-8c66-63a88228d735",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"6cd665a6-b574-4404-a3ed-2fd97eb4672c",
+								"remove"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "1e42331b-eae6-4599-8c66-63a88228d735"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pay",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart/76f1dc54-b04c-4b2f-bde5-e91927ac29c5/pay",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"76f1dc54-b04c-4b2f-bde5-e91927ac29c5",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cart/45321e1e-17f7-4d87-af8b-8319d7cd92e8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"45321e1e-17f7-4d87-af8b-8319d7cd92e8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
