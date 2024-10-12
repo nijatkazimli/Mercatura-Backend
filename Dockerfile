@@ -12,7 +12,8 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 COPY wait-for-it.sh /app/wait-for-it.sh
 RUN apt-get update && \
-    apt-get install -y default-mysql-client && \
+    apt-get install -y default-mysql-client dos2unix && \
+    dos2unix /app/wait-for-it.sh && \
     rm -rf /var/lib/apt/lists/* && \
     chmod +x /app/wait-for-it.sh
 EXPOSE 8080
