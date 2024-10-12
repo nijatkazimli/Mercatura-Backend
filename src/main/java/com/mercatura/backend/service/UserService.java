@@ -4,7 +4,9 @@ import com.mercatura.backend.dto.Statistics.UserStatistics;
 import com.mercatura.backend.dto.Responses.UUIDResponse;
 import com.mercatura.backend.dto.Responses.UserResponse;
 import com.mercatura.backend.entity.ApplicationUser;
+import com.mercatura.backend.entity.Cart;
 import com.mercatura.backend.entity.Image;
+import com.mercatura.backend.repository.CartRepository;
 import com.mercatura.backend.repository.ImageRepository;
 import com.mercatura.backend.repository.UserRepository;
 import org.springframework.data.domain.Page;
@@ -25,10 +27,12 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final ImageRepository imageRepository;
+    private final CartRepository cartRepository;
 
-    public UserService(UserRepository userRepository, ImageRepository imageRepository) {
+    public UserService(UserRepository userRepository, ImageRepository imageRepository, CartRepository cartRepository) {
         this.userRepository = userRepository;
         this.imageRepository = imageRepository;
+        this.cartRepository = cartRepository;
     }
 
     public List<UserResponse> getAllUsers(Integer page, Integer size) {
@@ -78,10 +82,10 @@ public class UserService implements UserDetailsService {
 
     public void deleteUserById(UUID id) {
         boolean exists = userRepository.existsById(id);
-        if (exists) {
-            userRepository.deleteById(id);
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User with id %s not found", id));
-        }
+        ApplicationUser user = userRepository.findById(id).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User with id %s not found", id)));
+        List<Cart> carts = cartRepository.findByUserId(id);
+        cartRepository.deleteAll(carts);
+        userRepository.delete(user);
     }
 }

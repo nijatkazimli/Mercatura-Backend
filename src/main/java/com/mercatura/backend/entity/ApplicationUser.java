@@ -35,8 +35,7 @@ public class ApplicationUser implements UserDetails {
     @NotNull
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @Fetch(FetchMode.SELECT)
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinColumn(name = "profile_image_id", referencedColumnName = "id")
     private Image profileImage;
 

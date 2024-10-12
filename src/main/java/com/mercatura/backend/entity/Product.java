@@ -9,6 +9,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Data
@@ -28,8 +29,7 @@ public class Product {
     @NotNull
     private Double price;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Fetch(FetchMode.SELECT)
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Image> images;
 
     @ManyToOne
@@ -42,4 +42,17 @@ public class Product {
 
     @Column(precision = 2)
     private Double rating;
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Product product = (Product) obj;
+        return Objects.equals(id, product.id);
+    }
 }
