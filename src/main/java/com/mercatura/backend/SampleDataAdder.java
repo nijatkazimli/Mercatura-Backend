@@ -210,7 +210,7 @@ public class SampleDataAdder {
                 reviews = product.getReviews().size();
                 ratingSum = product.getReviews().stream().mapToDouble(Review::getRating).sum();
             }
-            product.setRating(ratingSum / reviews);
+            product.setRating(ratingSum / (double) reviews);
             productRepository.save(product);
             reviewRepository.save(review);
         }
