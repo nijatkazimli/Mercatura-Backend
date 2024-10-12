@@ -24,21 +24,21 @@ public class AdminController {
         this.productService = productService;
     }
 
-    @Tag(name = "Admin/User")
+    @Tag(name = "Admin")
     @Operation(summary = "Gets user statistics.")
     @GetMapping("/user")
     public UserStatistics getAllUsers() {
         return userService.getAllUsersStatistics();
     }
 
-    @Tag(name = "Admin/Cart")
+    @Tag(name = "Admin")
     @Operation(summary = "Gets carts statistics.")
     @GetMapping("/cart")
     public CartStatistics getAllCartsStatistics( ) {
         return cartService.getAllCartsStatistics();
     }
 
-    @Tag(name = "Admin/Product")
+    @Tag(name = "Admin")
     @Operation(summary = "Gets products statistics.")
     @GetMapping("/product")
     public ProductStatistics getAllProductsStatistics( ) {
