@@ -206,9 +206,7 @@ public class SampleDataAdder {
             review.setProduct(product);
             Integer ratingSum = product.getReviews().stream().mapToInt(Review::getRating).sum() + rating;
             Integer reviews = 1;
-            if (product.getReviews() != null) {
-                reviews = product.getReviews().size();
-            }
+            reviews = product.getReviews().size();
             product.setRating((double) (ratingSum / reviews));
             productRepository.save(product);
             reviewRepository.save(review);
